@@ -1,3 +1,5 @@
+package com.example.project;
+
 // Java Program to Set up a Basic HTTP Server
 import com.sun.net.httpserver.HttpServer;
 import com.sun.net.httpserver.HttpHandler;
@@ -6,7 +8,8 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import com.example.project.Calculator;
+
+
 // Driver Class
 public class SimpleHttpServer 
 {
@@ -24,8 +27,6 @@ public class SimpleHttpServer
             server.setExecutor(null); // Use the default executor
             server.start();
 
-            Calculator calculator = new Calculator();
-            System.out.println(calculator.add(1,2));
             System.out.println("Server is running on port 8000");
         } catch (IOException e) {
             System.out.println("Error starting the server: " + e.getMessage());
@@ -38,6 +39,9 @@ public class SimpleHttpServer
         public void handle(HttpExchange exchange) throws IOException 
         {
             // Handle the request
+            Calculator calculator = new Calculator();
+            System.out.println(calculator.add(1,2));
+
             String response = "Hello, this is a simple HTTP server response!";
             exchange.sendResponseHeaders(200, response.length());
             OutputStream os = exchange.getResponseBody();
