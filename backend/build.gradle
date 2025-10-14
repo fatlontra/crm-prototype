@@ -10,10 +10,11 @@ repositories {
 }
 
 application {
-    mainClass = 'com.example.project.SimpleHttpServer'
+    mainClass = 'com.example.project.CheckSQL'
 }
 
 dependencies {
+  implementation('com.mysql:mysql-connector-j:9.4+')
   testImplementation('org.mockito:mockito-core:5.+')
 	testImplementation(platform('org.junit:junit-bom:6.0.0'))
 	testImplementation('org.junit.jupiter:junit-jupiter')
