@@ -1,0 +1,5 @@
+#!/bin/bash
+
+##Starting MySQL Database
+sudo service mysql start
+sudo service mysql status
