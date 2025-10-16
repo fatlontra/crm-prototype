@@ -10,7 +10,7 @@ repositories {
 }
 
 application {
-    mainClass = 'com.example.project.CheckSQL'
+    mainClass = 'com.example.project.SimpleHttpServer'
 }
 
 dependencies {
