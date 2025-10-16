@@ -1,14 +1,14 @@
 package com.example.project;
 
-// Java Program to Set up a Basic HTTP Server
-import com.sun.net.httpserver.HttpServer;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpExchange;
-
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.sql.*;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+// Java Program to Set up a Basic HTTP Server
+import com.sun.net.httpserver.HttpServer;
 
 // Driver Class
 public class SimpleHttpServer {
@@ -38,6 +38,13 @@ public class SimpleHttpServer {
       // Handle the request
       OutputStream os = exchange.getResponseBody();
       String response = "Hello World";
+
+      if (exchange.getRequestMethod().equals("POST")) {
+        InputStream is = exchange.getRequestBody();
+        String data = new String(is.readAllBytes());
+        System.out.println();
+        response = "Hello from POST";
+      }
 
       exchange.sendResponseHeaders(200, response.length());
       os.write(response.getBytes());
