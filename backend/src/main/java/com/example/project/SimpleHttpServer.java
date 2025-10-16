@@ -20,6 +20,7 @@ public class SimpleHttpServer {
 
       // Create a context for a specific path and set the handler
       server.createContext("/", new MyHandler());
+      server.createContext("/api/users", new PathFinder());
 
       // Start the server
       server.setExecutor(null); // Use the default executor
@@ -28,6 +29,19 @@ public class SimpleHttpServer {
       System.out.println("Server is running on port 8000");
     } catch (IOException e) {
       System.out.println("Error starting the server: " + e.getMessage());
+    }
+  }
+
+  static class PathFinder implements HttpHandler {
+    @Override
+    public void handle(HttpExchange exchange) throws IOException {
+      // Handle the request
+      OutputStream os = exchange.getResponseBody();
+      String response = "Hello World";
+
+      exchange.sendResponseHeaders(200, response.length());
+      os.write(response.getBytes());
+      os.close();
     }
   }
 
@@ -49,4 +63,5 @@ public class SimpleHttpServer {
       os.close();
     }
   }
+
 }

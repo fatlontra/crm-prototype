@@ -2,7 +2,8 @@ package com.example.project;
 
 import java.sql.*;
 
-public class CheckSQL {
+public class DatabaseConnection {
+
   public static void main(String[] args) {
     Connection connection = null;
     try {
@@ -28,5 +29,9 @@ public class CheckSQL {
     } catch (Exception e) {
       System.out.println(e);
     }
+  }
+
+  public static void addUser() {
+
   }
 }
