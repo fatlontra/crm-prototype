@@ -1,0 +1,14 @@
+#!/bin/bash
+SCRIPT_DIR=$(dirname "$0");
+
+set -a
+source $SCRIPT_DIR/.env
+set +a
+
+sudo mysql -e "
+CREATE USER '${USER_NAME}'@'${USER_HOST}' IDENTIFIED BY '${PASSWORD}';
+GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${USER_NAME}'@'${USER_HOST}';
+FLUSH PRIVILEGES;
+"
+
+sudo mysql -u $USER_NAME -p < $SCRIPT_DIR/schema.sql;
