@@ -1,0 +1,16 @@
+* CRM Prototype
+** Requirements
+- JDK 21
+- MySQL
+
+** Setup
+1. Create .env file
+    =C-c C-c=
+    #+begin_src shell :results silent
+    cp ./script/.env-example ./script/.env
+    #+end_src
+2. Add your preferred password to [[file:script/.env::4][.env]]
+3. Create the database and user for the project
+    #+begin_src shell
+    ./script/setup
+    #+end_src
