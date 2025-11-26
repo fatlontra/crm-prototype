@@ -18,7 +18,7 @@ public class SimpleHttpServer
     {
         try {
             // Create an HttpServer instance
-            HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+            HttpServer servers = HttpServer.create(new InetSocketAddress(8000), 0);
 
             // Create a context for a specific path and set the handler
             server.createContext("/", new MyHandler());
