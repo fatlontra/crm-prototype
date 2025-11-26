@@ -14,3 +14,9 @@
     #+begin_src shell
     ./script/setup
     #+end_src
+** Server
+1. Run the backend server
+   #+begin_src shell
+   ./script/server
+   #+end_src
+
