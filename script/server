@@ -1,0 +1,8 @@
+#!/bin/bash
+
+##Starting MySQL Database
+sudo service mysql start
+sudo service mysql status
+
+cd backend/
+./gradlew run
