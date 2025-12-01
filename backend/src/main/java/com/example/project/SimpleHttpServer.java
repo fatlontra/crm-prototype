@@ -20,6 +20,7 @@ public class SimpleHttpServer {
 
             // Create a context for a specific path and set the handler
             server.createContext("/", new MyHandler());
+            server.createContext("/login", new LoginHandler());
             server.createContext("/api/users", new PathFinder());
 
             // Start the server
